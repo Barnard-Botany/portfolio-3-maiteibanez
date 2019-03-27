@@ -1,0 +1,46 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+ More trees on the web: Open Tree of Life, Tree Base, ROTL (1 point)
+
+You should explore Open Tree of Life and TreeBase at their webpages.
+
+You may need to register and make an account. (Save your usernames and passwords!)
+
+Work through the R Notebook 3.2, which uses an R Package called ROTL to interact with the Interactive Tree of Life (iTOL) - see how ROTL can access its resources
+
+```{r}
+library("rotl")
+ß
+tnrs_contexts()
+```
+
+
+```{r}
+taxa <- c("Alnus", "Pyrus", "Fraxinus", "Tilia", "Betula", "Aesculus", "Rhamnus", "Catalpa", "Prunus", "Castanea", "Populus", "Cupressus", "Cornus", "Pseudotsuga", "Corylus", "Sequoiadendron", "Crataegus", "Tsuga", "Gleditsia", "Ilex", "Calocedrus", "Juniperus", "Larix", "Arbutus", "Acer", "Sorbus", "Cercocarpus", "Quercus", "Pinus", "Thuja", "Sequoia", "Elaeagnus", "Picea", "Liquidambar", "Platanus", "Lithocarpus", "Cedrus", "Abies", "Juglans", "Chamaecyparis", "Liriodendron", "Taxus")
+
+resolved_names <- tnrs_match_names(taxa, context_name = "Vascular plants")
+resolved_names
+in_tree <- is_in_tree(ott_id(resolved_names))
+in_tree
+my_tree <- tol_induced_subtree(ott_ids = resolved_names$ott_id)
+plot(my_tree, no.margin=TRUE)
+plot(my_tree, type="fan")
+```
+
+```{r}
+fagus_id <- tnrs_match_names("fagus")
+fagus_id
+fagus_tree <- tol_subtree(ott_id = ott_id(fagus_id))
+plot(fagus_tree, type = "fan")
+```
+
+## SAVING DISPLAYED TREES
+
+```{r}
+pdffn = "fagus_id.pdf"
+pdf(file=pdffn)
+plot(fagus_id, type="unrooted", edge.width=5, edge.color="blue", lab4ut="axial")
+dev.off()
+```

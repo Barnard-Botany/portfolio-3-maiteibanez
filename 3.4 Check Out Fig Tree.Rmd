@@ -1,0 +1,14 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+Download FigTree (which comes from GitHub). 
+Install it locally and then play around with it. 
+Try using it with the same tree created at the end of your R Notebook in part 3.1.
+What differences do you see between FigTree and your tree from R, if any? 
+Do you have a preference, and why?
+
+
+Graphics in Fig Tree have better spatial and semantic resolution.s
+
