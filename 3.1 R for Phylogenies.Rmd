@@ -308,6 +308,31 @@ layout(matrix(1, 1))
 
 Practice a few of these data display techniques using the six-taxon phylogeny that includes cabbage, kale, corn and wheat, plus radish and sequoia.
 
+plot(tr2_cerealsplus2right);
+
+```{r}
+layout(matrix(1:4, 2, 2))
+plot(tr2_cerealsplus2right, type="cladogram")
+plot(tr2_cerealsplus2right, type="fan")
+plot(tr2_cerealsplus2right, type="unrooted")
+plot(tr2_cerealsplus2right, type="radial")
+```
+
+```{r}
+layout(matrix(1:4, 2, 2))
+plot(tr2_cerealsplus2right, type="unrooted", edge.width=5, edge.color="blue")
+plot(tr2_cerealsplus2right, type="unrooted", edge.width=5, edge.color="red", lab4ut="horizontal")
+plot(tr2_cerealsplus2right, type="unrooted", edge.width=5, edge.color="green", lab4ut="axial")
+```
+
+```{r}
+layout(matrix(1:4, 2, 2))
+plot(tr2_cerealsplus2right, main = "normal", type = "phylogram", direction = c("upwards"))
+plot(ladderize(tr2_cerealsplus2right), main = "right-ladderized", direction = c("upwards"))
+plot(ladderize(tr2_cerealsplus2right, FALSE), main = "left-ladderized", direction=c("upwards"))
+```
+
+
 ### SAVING FILES: important for reproducing trees later
 
 As part of Portfolio 3, we'll learn ways outside of R to work with trees to visually change things like tip labels, color coding, etc. (There are also packages in R to do this, e.g. GGTREE.)
@@ -595,11 +620,31 @@ Do and write up notes about two things:
 
 
 ```{r}
-plot(tr_primate, type="cladogram")
-plot(tr2_plants, type="cladogram")
+plot(tree_phylomatic_EG1, type="phylogram")
+plot(tree_phylomatic_EG2, type="phylogram")
 ```
 
+```{r}
+tree_phylomatic_EG1
 
+str(tree_phylomatic_EG1)
+
+attributes(tree_phylomatic_EG1)
+
+names(tree_phylomatic_EG1) 
+
+```
+
+```{r}
+tree_phylomatic_EG2
+
+str(tree_phylomatic_EG2)
+
+attributes(tree_phylomatic_EG2)
+
+names(tree_phylomatic_EG2) 
+
+```
 
 2. Then, looking at all your output, what differs most noticably between the pair of trees, and how/why does this relate to the storedtree used to generate them? Try to explain what this means in your own words. 
 
@@ -635,6 +680,11 @@ You can then use those output files to begin the part of the Portfolio that uses
 Lastly, be sure to save your R Notebook with appropriate output and commentary. 
 
 When your finished with this part of Portfolio 3, you can and should push the notebook and associated exported files back to the appropriate GitHub Repository for Digital Lab 3.  
+
+```{r}
+LES<-c("Acer rubrum", "Dichanthelium depauperatum", "Erigeron strigosus", "Eurybia divaricata", "Parthenocissus quinquefolia", "Prunus serotina", "Rubus allegheniensis", "Smilax rotundifolia", "Viburnum prunifolium", "Viola cucullata", "Acalypha virginica", "Pteridium aquilinum", "Castanea dentata", "Quercus rubra", "Rhus copallinum", "Spartina alterniflora", "Spartina patens", "Viburnum acerifolium", "Muhlenbergia schreberi", "Anemone virginiana", "Arabis laevigata", "Aralia nudicaulis", "Arisaema triphyllum", "Asclepias tuberosa", "Atriplex patula", "Aureolaria flava", "Carya glabra", "Celastrus scandens", "Cenchrus tribuloides", "Chimaphila maculata", "Cuscuta gronovii", "Dennstaedtia punctilobula", "Desmodium nudiflorum", "Desmodium rotundifolium", "Dryopteris marginalis", "Erechtites hieraciifolius", "Fragaria virginiana", "Galium circaezans", "Galium triflorum", "Gaylussacia baccata", "Geranium maculatum", "Geum virginianum", "Hamamelis virginiana", "Hieracium scabrum", "Iva frutescens", "Juniperus virginiana", "Kalmia latifolia", "Lactuca canadensis", "Lespedeza procumbens", "Limonium carolinianum", "Linum virginianum", "Lobelia inflata", "Lonicera sempervirens", "Maianthemum racemosum", "Mitchella repens", "Muhlenbergia sobolifera", "Panicum virgatum", "Phegopteris hexagonoptera", "Phryma leptostachya", "Physalis heterophylla", "Pinus rigida", "Plantago maritima", "Polygonum scandens", "Polystichum acrostichoides", "Potentilla norvegica", "Rosa carolina", "Sarcocornia perennis", "Saxifraga virginiensis", "Silene caroliniana", "Solidago caesia", "Solidago nemoralis", "Solidago sempervirens", "Triodanis perfoliata", "Vaccinium corymbosum", "Viola palmata", "Vitis labrusca", "Lespedeza hirta", "Euthamia graminifolia", "Hepatica nobilis", "Actaea pachypoda", "Cornus alternifolia", "Liriodendron Tulipifera", "Phragmites australis", "Pycnanthemum virginianum", "Rubus canadensis", "Quercus prinus", "Antennaria plantaginifolia", "Apocynum cannabinum", "Cirsium horridulum", "Cirsium pumilum", "Festuca rubra", "Hieracium paniculatum", "Oenothera biennis", "Schizachyrium scoparium", "Trichostema dichotomum", "Tridens flavus", "Athyrium filix-femina", "Clematis virginiana", "Polygala verticillata", "Populus tremuloides", "Solidago odora", "Acalypha gracilens", "Agalinis maritima", "Agalinis tenuifolia", "Agrostis hyemalis", "Agrostis perennans", "Arabis lyrata", "Bulbostylis capillaris", "Carex cephalophora", "Carex pensylvanica", "Carex umbellata", "Carya alba", "Chimaphila umbellata", "Cimicifuga racemosa", "Corylus americana", "Cypripedium acaule", "Desmodium glabellum", "Desmodium marilandicum", "Desmodium paniculatum", "Distichlis spicata", "Eleocharis parvula", "Equisetum arvense", "Eupatorium rotundifolium", "Hibiscus moscheutos", "Hieracium venosum", "Iris versicolor", "Juncus gerardii", "Lechea mucronata", "Lespedeza violacea", "Morella pensylvanica", "Nyssa sylvatica", "Panicum capillare", "Pedicularis canadensis", "Photinia melanocarpa", "Potentilla canadensis", "Potentilla simplex", "Pycnanthemum tenuifolium", "Pyrola americana", "Quercus alba", "Quercus coccinea", "Quercus velutina", "Ranunculus abortivus", "Ranunculus recurvatus", "Rubus hispidus", "Rubus occidentalis", "Rubus pensilvanicus", "Schoenoplectus americanus", "Sericocarpus asteroides", "Solidago bicolor", "Solidago canadensis", "Triglochin maritimum", "Vaccinium pallidum", "Vernonia noveboracensis", "Vitis aestivalis", "Lycopodium complanatum", "Myosotis verna", "Pyrola elliptica", "Silene stellata", "Verbena urticifolia", "Allium canadense", "Ceanothus americanus", "Hypoxis hirsuta", "Lespedeza capitata", "Sphenopholis obtusata", "Asclepias purpurascens", "Baccharis halimifolia", "Carpinus caroliniana", "Celtis occidentalis", "Chamaesyce nutans", "Clethra alnifolia", "Cornus racemosa", "Dryopteris intermedia", "Liquidambar styraciflua", "Rosa virginiana", "Vitis riparia", "Apios americana", "Lactuca biennis", "Ambrosia artemisiifolia", "Danthonia spicata", "Ionactis linariifolius", "Juncus tenuis", "Teucrium canadense", "Eurybia macrophylla", "Maianthemum canadense", "Viola sororia", "Bidens frondosa", "Oxalis stricta", "Persicaria pensylvanica", "Thalictrum dioicum", "Toxicodendron radicans", "Amelanchier arborea", "Amelanchier laevis", "Anaphalis margaritacea", "Apocynum androsaemifolium", "Arabis canadensis", "Asplenium platyneuron", "Asplenium trichomanes", "Aureolaria virginica", "Betula nigra", "Cardamine parviflora", "Carex hitchcockiana", "Carya cordiformis", "Cornus rugosa", "Cyperus lupulinus", "Diervilla lonicera", "Diospyros virginiana", "Erigeron philadelphicus", "Helianthus divaricatus", "Juglans nigra", "Lechea racemulosa", "Malus coronaria", "Oxalis violacea", "Physalis virginiana", "Prenanthes altissima", "Pycnanthemum clinopodioides", "Ribes americanum", "Sericocarpus linifolius", "Solidago flexicaulis", "Symphyotrichum lanceolatum", "Symphyotrichum lowrieanum", "Vaccinium angustifolium", "Verbena simplex", "Aquilegia canadensis", "Aralia racemosa", "Aristida longispica", "Bidens connata", "Boehmeria cylindrica", "Carex eburnea", "Carex muehlenbergii", "Claytonia virginica", "Conopholis americana", "Cyperus odoratus", "Desmodium canadense", "Dicentra cucullaria", "Dichanthelium clandestinum", "Elymus hystrix", "Erythronium americanum", "Eupatorium fistulosum", "Eupatorium hyssopifolium", "Eupatorium purpureum", "Galium lanceolatum", "Gentianopsis crinita", "Leersia virginica", "Lilaeopsis chinensis", "Lycopus uniflorus", "Lysimachia hybrida", "Monotropa hypopithys", "Oenothera parviflora", "Opuntia humifusa", "Orobanche uniflora", "Osmunda regalis", "Panax quinquefolius", "Symphyotrichum novae-angliae", "Thelypteris noveboracensis", "Viburnum dentatum", "Viola sagittata", "Bromus pubescens", "Deparia acrostichoides", "Fagus grandifolia", "Fraxinus americana", "Juglans cinerea", "Laportea canadensis", "Lindera benzoin", "Polygala sanguinea", "Polygonum erectum", "Populus deltoides", "Ranunculus pensylvanicus", "Salix humilis", "Spiranthes lacera", "Thalictrum thalictroides", "Trichophorum planifolium", "Trillium cernuum", "Ulmus americana", "Viola pedata", "Aletris farinosa", "Anemone quinquefolia", "Arabis glabra", "Betula lenta", "Carex albicans", "Carex platyphylla", "Circaea lutetiana", "Cuphea viscosissima", "Danthonia compressa", "Deschampsia flexuosa", "Desmodium canescens", "Desmodium laevigatum", "Desmodium nuttallii", "Goodyera pubescens", "Hieracium gronovii", "Juncus acuminatus", "Juncus marginatus", "Lycopodium digitatum", "Ophioglossum pusillum", "Parietaria pensylvanica", "Pluchea odorata", "Polygala incarnata", "Polygonum ramosissimum", "Pseudognaphalium obtusifolium", "Pycnanthemum torrei", "Sabatia dodecandra", "Salicornia virginica", "Solidago speciosa", "Spartina cynosuroides", "Sphenopholis nitida", "Symphyotrichum racemosum", "Triosteum perfoliatum", "Veronicastrum virginicum", "Anemone cylindrica", "Antennaria neglecta", "Botrychium virginianum", "Calystegia spithamaea", "Cenchrus longispinus", "Chamaecrista fasciculata", "Chamaecrista nictitans", "Comptonia peregrina", "Leucothoe racemosa", "Liatris scariosa", "Lycopodium obscurum", "Lycopus virginicus", "Lysimachia ciliata", "Lysimachia quadrifolia", "Oligoneuron rigidum", "Panax trifolius", "Phaseolus polystachios", "Polygonatum biflorum", "Sporobolus compositus", "Symphyotrichum ericoides", "Uvularia sessilifolia", "Vulpia octoflora", "Agrimonia gryposepala", "Ambrosia trifida", "Asplenium rhizophyllum", "Bartonia virginica", "Carya ovalis", "Corallorrhiza maculata", "Corallorrhiza odontorhiza", "Corydalis sempervirens", "Desmodium obtusum", "Eragrostis capillaris", "Onoclea sensibilis", "Osmunda claytoniana", "Ptelea trifoliata", "Rubus odoratus", "Salix sericea", "Scrophularia lanceolata", "Scrophularia marilandica", "Thaspium trifoliatum", "Woodsia obtusa", "Agastache nepetoides", "Asclepias verticillata", "Bromus ciliatus", "Cardamine diphylla", "Crataegus pedicellata", "Elymus canadensis", "Galearis spectabilis", "Pellaea atropurpurea", "Prunus pensylvanica", "Tsuga canadensis", "Ulmus rubra", "Acer saccharinum", "Acer saccharum", "Andropogon glomeratus", "Andropogon virginicus", "Carya ovata", "Chenopodium simplex", "Collinsonia canadensis", "Crataegus crus-galli", "Cystopteris fragilis", "Dichanthelium scoparium", "Dioscorea villosa", "Elymus virginicus", "Gaylussacia frondosa", "Helianthus decapetalus", "Hierochloe odorata", "Hydrophyllum canadense", "Lathyrus palustris", "Lilium philadelphicum", "Liparis liliifolia", "Lyonia mariana", "Lysimachia thyrsiflora", "Medeola virginiana", "Ostrya virginiana", "Oxalis montana", "Podophyllum peltatum", "Populus grandidentata", "Pycnanthemum incanum", "Pycnanthemum muticum", "Quercus prinoides", "Quercus stellata", "Sabatia campanulata", "Salvia lyrata", "Sanguinaria canadensis", "Sicyos angulatus", "Silene antirrhina", "Smilax herbacea", "Symphyotrichum cordifolium", "Symphyotrichum novi-belgii", "Tilia americana", "Trillium erectum", "Uvularia perfoliata", "Viburnum lantanoides", "Agalinis purpurea", "Alisma triviale", "Botrychium dissectum", "Cardamine concatenata", "Cinna arundinacea", "Commelina erecta", "Crotalaria sagittalis", "Echinocystis lobata", "Epifagus virginiana", "Euthamia tenuifolia", "Fraxinus pennsylvanica", "Gaultheria procumbens", "Gentiana andrewsii", "Lonicera dioica", "Matteuccia struthiopteris", "Monotropa uniflora", "Oclemena acuminata", "Onosmodium virginianum", "Phegopteris connectilis", "Polygonatum pubescens", "Polygonum tenue", "Rubus cuneifolius", "Smilax glauca", "Staphylea trifolia", "Woodwardia virginica", "Caulophyllum thalictroides", "Chamaelirium luteum", "Crataegus pruinosa", "Cyperus squarrosus", "Dryopteris carthusiana", "Euonymus americana", "Galactia volubilis", "Liparis loeselii", "Menispermum canadense", "Polypodium virginianum", "Scleria triglomerata", "Scutellaria elliptica", "Stachys tenuifolia", "Woodsia ilvensis")
+
+```
 
 
 
