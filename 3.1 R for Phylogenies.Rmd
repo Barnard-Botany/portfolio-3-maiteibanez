@@ -104,6 +104,33 @@ There are many trees that can be drawn to show relationships of four taxa. Some 
 
 To finish up Mini-Exercise 1, write new code with a new Newick string variable, read the string using read.tree, and plot it. The goal is to generate a four-taxon tree with a new topology. It will be an erroneous tree, depicting relationships that contradict today's biological knowledge. That's okay; this is just an exercise.
 
+```{r}
+tr_primates
+```
+
+```{r}
+str("tr_primates")
+```
+```{r}
+str(tr_primates)
+```
+```{r}
+attributes(tr_primates)
+```
+```{r}
+
+names(tr_primates) 
+```
+
+```{r}
+mynewick_str = "(((oaks,beech), magnolia), redwood);"
+#Here, we are defining a character variable. 
+tr_trees = read.tree(text=mynewick_str)
+#Now, with the command "read.tree" from the Package APE, we are converting that simple character variable by reading it as a tree, also known as a phylo object. The function in APE is going to understand not only that there are four "tip taxa" but also that the structure of the parenthesis is meaningful as a hypothesis about their evolutionary relationship, and at the same time the information needed to connect them into a tree diagram with three nodes (which are ancestral taxa to these tip taxa). Before you run the code, think about what the phylogenetic tree should look like, basedo n what you know about these four taxa and about what you know about the code. 
+plot(tr_trees)
+#This last line simply plotted the object as a tree. More about this below. 
+```
+
 #### Overall message about phylogenies
 Phylogenies have tips, nodes and edges. Nodes are ancestors to tips. Tips and edges are connected by nodes. Also, reecent or derived nodes can  connect to older or ancestral nodesThe details of how tips and nodes connect (via edges) is dictate by the newick code. 
 
@@ -140,9 +167,41 @@ plot(tr2_plants)
 
 1. Copy, paste and re-write a chunk of code (or write it fresh): write a new Newick tree as as string variable, read it as a tree, and plot it. Make sure it is consistent with 2018 botanical knowledge about these four taxa. You may need to modify topology.
 
+```{r}
+cereals = "(((barley,wheat),rice),(maize,shorgum));"
+tr2_cereals = read.tree(text=cereals)
+plot(tr2_cereals)
+```
+
+
 2. To these four taxa, add two additional taxa: radish and sequoia. For these six tip taxa, write a new Newick variable, read it, and plot it. Then repeat. Aim to write two alternative trees: one erroneous and one correct. 
+```{r}
+cerealsplus2wrong = "((((barley,radish,wheat),rice),(maize,shorgum)),sequoia);"
+tr2_cerealsplus2wrong = read.tree(text=cerealsplus2wrong);
+plot(tr2_cerealsplus2wrong);
+```
+
+```{r}
+cerealsplus2right = "(((((barley,wheat),rice),(maize,shorgum)),radish),sequoia);"
+tr2_cerealsplus2right = read.tree(text=cerealsplus2right);
+plot(tr2_cerealsplus2right);
+```
 a. Explain what's wrong in your erroneous tree and how you've corrected the error in the other tree. .
 b. Use commands such as "str" or "attribute" and comment about whether your erroneous and correct tree differ in tips, Nnodes, or edges. 
+
+```{r}
+tr2_cerealsplus2right
+
+
+str(tr2_cerealsplus2right)
+
+attributes(tr2_cerealsplus2right)
+
+names(tr2_cerealsplus2right) 
+```
+
+
+
 
 ## Branching order and branching lengths
 
@@ -534,9 +593,26 @@ Do and write up notes about two things:
 
 1. Try generating these trees again, but change from cladogram to phylogram, or to another format for the tree. 
 
+
+```{r}
+plot(tr_primate, type="cladogram")
+plot(tr2_plants, type="cladogram")
+```
+
+
+
 2. Then, looking at all your output, what differs most noticably between the pair of trees, and how/why does this relate to the storedtree used to generate them? Try to explain what this means in your own words. 
 
+
+
+
 3. Lastly, look at the output and you'll see that many taxa were excluded. Try looking them up in EOL or Wikipedia. Why was it difficult to include them? What does this say about the history of botany? Are there some things that were excluded that should not have been excluded.  
+
+
+
+
+
+
 
 
 # FINISHING UP - MICRO-EXERCISES AND A MACRO-EXERCISE
