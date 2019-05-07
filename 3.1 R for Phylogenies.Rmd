@@ -232,6 +232,12 @@ newick_str = "(((Humans:12.5, Chimps:12.5):1.0, Gorillas:14.0):1.0, Orangs:14.5)
 tr_primate = read.tree(text=newick_str)
 plot(tr_primate)
 ```
+# Your modified tree should have looked like this:
+```{r}
+newick_str = "(((Humans:12.5, Chimps:12.5):1.0, Gorillas:14.0):1.0, (Orang_ abelii:14.5, Orang_tapanuliensis:14.5):3.5);"
+tr_primate = read.tree(text=newick_str)
+plot(tr_primate)
+```
 
 ## Displaying Phylogenies
 
@@ -686,5 +692,5 @@ LES<-c("Acer rubrum", "Dichanthelium depauperatum", "Erigeron strigosus", "Euryb
 
 ```
 
-
+# I'm not sure what you were intending to do with this `LES` list. The final exercise asked you to create phylogenies based on 2 of the plant lists you made for Portfolio 2, and then to upload these trees to the Interactive Tree of Life website. Finish this last part if you'd like full points for Portfolio 3.
 
